@@ -2,6 +2,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReadTheObject {
 
@@ -9,16 +11,22 @@ public class ReadTheObject {
 
 
 
-        try(ObjectInputStream input = new ObjectInputStream(new FileInputStream("student.bin"))){
+        try(ObjectInputStream input = new ObjectInputStream(new FileInputStream("students.bin"))){
 
-             Student student =(Student)input.readObject() ;
-             Student student1 =(Student)input.readObject() ;
+           Student[] students =(Student[])input.readObject() ;
+           List<Student> studentList =(ArrayList<Student>) input.readObject() ;
 
 
-            System.out.println(student);
-            System.out.println("----------------------------");
-            System.out.println(student1);
+           for (Student student : students){
+               System.out.println(student);
+               System.out.println("------------------");
+           }
+            System.out.println("**************************** Arraylist");
 
+            for (Student student : studentList){
+                System.out.println(student);
+                System.out.println("------------------");
+            }
         } catch (FileNotFoundException e) {
             System.out.println("File Not Found ");
         } catch (IOException e) {
