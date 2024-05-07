@@ -21,7 +21,7 @@ public class Main {
           List<Student> studentList = new ArrayList<>(Arrays.asList(students)) ;
 
 
-        try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("students.bin"))){
+        try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("student.bin"))){
 
              out.writeObject(students);
              out.writeObject(studentList);

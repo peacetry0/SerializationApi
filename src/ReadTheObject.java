@@ -11,7 +11,7 @@ public class ReadTheObject {
 
 
 
-        try(ObjectInputStream input = new ObjectInputStream(new FileInputStream("students.bin"))){
+        try(ObjectInputStream input = new ObjectInputStream(new FileInputStream("student.bin"))){
 
            Student[] students =(Student[])input.readObject() ;
            List<Student> studentList =(ArrayList<Student>) input.readObject() ;
